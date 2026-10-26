@@ -1,0 +1,8 @@
+.DS_Store
+.claude/
+CLAUDE.md
+DESIGN.md
+.mcp.json
+.playwright-mcp/
+
+.playwright-cli/
