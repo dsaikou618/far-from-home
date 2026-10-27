@@ -24,10 +24,31 @@ The preview server serves the built site at http://localhost:4321/far-from-home/
 ## Editing
 
 - Page content: `src/data/site.ts`
+- Journal entries: `src/content/journal/`
 - Sections: `src/components/`
 - Global styles: `src/styles/global.css`
 - Fonts: `src/assets/fonts/`
 - Favicon: `public/favicon.svg`
+
+## Adding a journal entry
+
+Create a Markdown file in `src/content/journal/`:
+
+```md
+---
+title: "Entry title"
+description: "One sentence for the journal list."
+date: 2026-11-01
+location: "City, country"
+cover: "/images/journal/your-photo.jpg"
+coverAlt: "What the photo shows"
+draft: false
+---
+
+Start the body here. Use `##` for section headings.
+```
+
+Put photos in `public/images/journal/`. The file name becomes the slug, so `first-stop.md` is published at `/far-from-home/journal/first-stop/`. Set `draft: true` to keep an entry out of the build. The cover fields are optional.
 
 ## Deployment
 
@@ -37,6 +58,6 @@ Live site: https://dsaikou618.github.io/far-from-home/
 
 ## Current draft
 
-The journal is empty and the Instagram and TikTok links are pending. Real entries and handles will replace the empty states when they are available.
+The journal list and entry pages are ready. The empty state stays until the first real entry is added. The Instagram and TikTok links are still pending.
 
 `DESIGN.md` is a local design reference and is not deployed.

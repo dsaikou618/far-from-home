@@ -1,0 +1,85 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getCollection, render } from "astro:content";
+import { about, brand } from "../../data/site";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { formatDate } from "../../lib/format";
+import { assetUrl, basePath, entryUrl } from "../../lib/paths";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("journal", ({ data }) => !data.draft);
+
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<"journal">;
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const canonical = new URL(
+  entryUrl(entry.id),
+  Astro.site ?? Astro.url.origin,
+).href;
+const cover = entry.data.cover ? assetUrl(entry.data.cover) : undefined;
+const title = `${entry.data.title} | ${brand.name}`;
+const description = entry.data.description;
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: entry.data.title,
+  description,
+  datePublished: entry.data.date.toISOString(),
+  author: about.people.map((person) => ({
+    "@type": "Person",
+    name: person.name,
+  })),
+  url: canonical,
+  inLanguage: "en",
+  ...(cover
+    ? { image: new URL(cover, Astro.site ?? Astro.url.origin).href }
+    : {}),
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogType="article"
+  schema={schema}
+>
+  <article class="entry">
+    <a class="text-link entry-back" href={`${basePath}#journal`}
+      >Back to the journal</a
+    >
+    <header class="entry-header">
+      <p class="entry-meta">
+        <time datetime={entry.data.date.toISOString()}>
+          {formatDate(entry.data.date)}
+        </time>
+        <span>{entry.data.location}</span>
+      </p>
+      <h1 class="entry-title">{entry.data.title}</h1>
+      <p class="entry-description">{entry.data.description}</p>
+    </header>
+    {
+      cover && (
+        <img
+          class="entry-cover"
+          src={cover}
+          alt={entry.data.coverAlt ?? entry.data.title}
+          loading="eager"
+          decoding="async"
+        />
+      )
+    }
+    <div class="entry-body">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
