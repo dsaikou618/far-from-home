@@ -51,15 +51,13 @@ export const about = {
       detail: "The other half of Far From Home. More about Tri soon.",
     },
   ],
-  draftNote:
-    "This is a draft before the MVP. Nothing here is a finished route yet.",
+  draftNote: "This is a draft before the MVP. Nothing here is a finished route yet.",
 };
 
 export const contact = {
   number: "03",
   title: "Work with us",
   statement: "Travel with us.",
-  copy:
-    "For collaborations, route ideas, or a simple hello, email us. If you have a place, a stay, or an idea that fits the journal, we would like to hear it.",
+  copy: "For collaborations, route ideas, or a simple hello, email us. If you have a place, a stay, or an idea that fits the journal, we would like to hear it.",
   note: brand.socialNote,
 };

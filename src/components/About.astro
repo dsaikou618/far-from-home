@@ -8,14 +8,12 @@ import SectionLabel from "./SectionLabel.astro";
   <div class="section-body">
     <p class="standfirst">{about.standfirst}</p>
     <div class="people">
-      {
-        about.people.map((person) => (
-          <article class="person">
-            <h3>{person.name}</h3>
-            <p>{person.detail}</p>
-          </article>
-        ))
-      }
+      {about.people.map(person => (
+        <article class="person">
+          <h3>{person.name}</h3>
+          <p>{person.detail}</p>
+        </article>
+      ))}
     </div>
     <p class="draft-note">{about.draftNote}</p>
   </div>

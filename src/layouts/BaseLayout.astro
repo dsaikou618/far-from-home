@@ -35,23 +35,15 @@ const { title, description, canonical, schema } = Astro.props;
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <link
-      rel="icon"
-      href={`${basePath}favicon.svg`}
-      type="image/svg+xml"
-    />
-    {
-      schema && (
-        <script
-          type="application/ld+json"
-          is:inline
-          set:html={JSON.stringify(schema)}
-        ></script>
-      )
-    }
+    <link rel="icon" href={`${basePath}favicon.svg`} type="image/svg+xml" />
+    {schema && (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)}></script>
+    )}
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main">
+      Skip to content
+    </a>
     <Header />
     <main id="main">
       <slot />

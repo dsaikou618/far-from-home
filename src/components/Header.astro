@@ -4,9 +4,13 @@ import { brand, nav } from "../data/site";
 
 <header class="site-header">
   <div class="site-header__inner">
-    <a class="wordmark" href="#top">{brand.name}</a>
+    <a class="wordmark" href="#top">
+      {brand.name}
+    </a>
     <nav class="site-nav" aria-label="Main">
-      {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+      {nav.map(item => (
+        <a href={item.href}>{item.label}</a>
+      ))}
     </nav>
   </div>
 </header>

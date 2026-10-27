@@ -4,15 +4,13 @@ import SectionLabel from "./SectionLabel.astro";
 ---
 
 <section class="section contact" id="contact" aria-labelledby="contact-title">
-  <SectionLabel
-    number={contact.number}
-    title={contact.title}
-    id="contact-title"
-  />
+  <SectionLabel number={contact.number} title={contact.title} id="contact-title" />
   <div class="section-body">
     <p class="contact-statement">{contact.statement}</p>
     <p class="contact-copy">{contact.copy}</p>
-    <a class="contact-link" href={`mailto:${brand.email}`}>{brand.email}</a>
+    <a class="contact-link" href={`mailto:${brand.email}`}>
+      {brand.email}
+    </a>
     <p class="social-note">{contact.note}</p>
   </div>
 </section>
