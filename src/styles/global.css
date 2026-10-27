@@ -4,7 +4,7 @@
   font-weight: 400 700;
   font-stretch: 100%;
   font-display: swap;
-  src: url("./fonts/archivo-latin.woff2") format("woff2");
+  src: url("../assets/fonts/archivo-latin.woff2") format("woff2");
 }
 
 @font-face {
@@ -12,7 +12,7 @@
   font-style: normal;
   font-weight: 400 600;
   font-display: swap;
-  src: url("./fonts/literata-latin.woff2") format("woff2");
+  src: url("../assets/fonts/literata-latin.woff2") format("woff2");
 }
 
 :root {
@@ -598,15 +598,23 @@ a:focus-visible {
   text-wrap: pretty;
 }
 
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  margin-top: 2rem;
+}
+
 .contact-link {
   display: inline-flex;
   align-items: center;
   min-height: 48px;
-  margin-top: 2rem;
   color: var(--ink);
   font-family: var(--font-display);
   font-size: clamp(1.1rem, 1.8vw, 1.4rem);
   font-weight: 600;
+  overflow-wrap: anywhere;
   text-decoration: underline;
   text-decoration-color: var(--clay);
   text-decoration-thickness: 2px;
@@ -616,10 +624,6 @@ a:focus-visible {
 
 .contact-link:hover {
   color: var(--clay);
-}
-
-.contact-link:hover .arrow::after {
-  transform: rotate(45deg) translate(2px, -2px);
 }
 
 .site-footer {
