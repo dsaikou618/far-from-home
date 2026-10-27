@@ -1,28 +1,23 @@
 ---
+import About from "../components/About.astro";
 import Contact from "../components/Contact.astro";
 import Hero from "../components/Hero.astro";
-import Projects from "../components/Projects.astro";
-import Toolkit from "../components/Toolkit.astro";
-import { profile } from "../data/site";
+import Journal from "../components/Journal.astro";
+import { brand } from "../data/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { canonicalUrl } from "../lib/paths";
 
-const title = "Saikou Diallo | Computer Science Student";
+const title = "Far From Home | Travel journal by Saikou and Tri";
 const description =
-  "Saikou Diallo is a computer science student at Nordakademie in Germany. Machine learning projects in Python, built end to end. Open to software and data internships.";
+  "Far From Home is a travel journal by Saikou and Tri. Routes, stops, and notes from the road. The first entries are on the way.";
 const canonical = canonicalUrl(Astro.site, Astro.url.origin);
 const schema = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: profile.name,
+  "@type": "WebSite",
+  name: brand.name,
   url: canonical,
-  jobTitle: "Computer Science Student",
-  email: profile.email,
-  affiliation: {
-    "@type": "CollegeOrUniversity",
-    name: profile.school,
-  },
-  sameAs: [profile.github],
+  description,
+  inLanguage: "en",
 };
 ---
 
@@ -33,7 +28,7 @@ const schema = {
   schema={schema}
 >
   <Hero />
-  <Projects />
-  <Toolkit />
+  <Journal />
+  <About />
   <Contact />
 </BaseLayout>

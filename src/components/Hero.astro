@@ -1,59 +1,32 @@
 ---
-import { profile } from "../data/site";
+import { brand, hero } from "../data/site";
 ---
 
 <section class="hero" id="top" aria-labelledby="hero-title">
-  <div class="hero-copy">
-    <p class="eyebrow">Portfolio / 2026</p>
-    <h1 id="hero-title">
-      {profile.firstName} <span>{profile.lastName}</span>
-    </h1>
-    <p class="hero-intro">{profile.intro}</p>
+  <div class="hero-meta">
+    <span>{hero.eyebrow}</span>
+    <span>{brand.travellers} / {brand.year}</span>
+  </div>
+  <h1 id="hero-title">{hero.title}</h1>
+  <div class="hero-bottom">
+    <p class="hero-intro">{hero.intro}</p>
     <div class="hero-actions">
-      <a class="button-link" href="#work">Selected work</a>
-      <a class="text-link" href={profile.github}
-        >GitHub<span class="arrow" aria-hidden="true"></span></a
-      >
+      <a class="button-link" href={hero.primary.href}>{hero.primary.label}</a>
+      <a class="text-link" href={hero.secondary.href}>{hero.secondary.label}</a>
     </div>
   </div>
-
-  <aside class="record-card" aria-label="Student record">
-    <div class="record-top">
-      <span>Student record</span>
-      <span class="record-year">2026</span>
+  <div class="hero-route" aria-hidden="true">
+    <svg viewBox="0 0 1200 120" focusable="false">
+      <path
+        class="route-path"
+        pathLength="1"
+        d="M2 86 C 180 18, 380 18, 560 60 S 940 104, 1198 34"></path>
+      <circle class="route-dot" cx="2" cy="86" r="4"></circle>
+      <circle class="route-dot" cx="1198" cy="34" r="4"></circle>
+    </svg>
+    <div class="route-labels">
+      <span>{hero.routeStart}</span>
+      <span>{hero.routeEnd}</span>
     </div>
-    <div class="monogram" aria-hidden="true">{profile.initials}</div>
-    <dl class="record-list">
-      <div>
-        <dt>Based in</dt>
-        <dd>{profile.location}</dd>
-      </div>
-      <div>
-        <dt>From</dt>
-        <dd>{profile.origin}</dd>
-      </div>
-      <div>
-        <dt>Age</dt>
-        <dd>{profile.age}</dd>
-      </div>
-      <div>
-        <dt>Status</dt>
-        <dd>{profile.status}</dd>
-      </div>
-    </dl>
-    <div class="route" aria-hidden="true">
-      <svg viewBox="0 0 260 56" focusable="false">
-        <path
-          class="route-path"
-          pathLength="1"
-          d="M8 40 C 66 4, 194 4, 252 40"></path>
-        <circle class="route-dot" cx="8" cy="40" r="3.5"></circle>
-        <circle class="route-dot" cx="252" cy="40" r="3.5"></circle>
-      </svg>
-      <div class="route-labels">
-        <span>{profile.origin}</span>
-        <span>{profile.location}</span>
-      </div>
-    </div>
-  </aside>
+  </div>
 </section>

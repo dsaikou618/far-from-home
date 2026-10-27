@@ -1,0 +1,22 @@
+---
+import { about } from "../data/site";
+import SectionLabel from "./SectionLabel.astro";
+---
+
+<section class="section" id="about" aria-labelledby="about-title">
+  <SectionLabel number={about.number} title={about.title} id="about-title" />
+  <div class="section-body">
+    <p class="standfirst">{about.standfirst}</p>
+    <div class="people">
+      {
+        about.people.map((person) => (
+          <article class="person">
+            <h3>{person.name}</h3>
+            <p>{person.detail}</p>
+          </article>
+        ))
+      }
+    </div>
+    <p class="draft-note">{about.draftNote}</p>
+  </div>
+</section>
