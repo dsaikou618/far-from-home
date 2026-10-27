@@ -1,92 +1,65 @@
-export const profile = {
-  name: "Saikou Diallo",
-  firstName: "Saikou",
-  lastName: "Diallo",
-  initials: "SD",
-  age: 22,
-  origin: "Guinea",
-  location: "Germany",
-  school: "Nordakademie",
-  status: "Open to internships",
+export const brand = {
+  name: "Far From Home",
   email: "saikoud618@gmail.com",
-  github: "https://github.com/dsaikou618",
-  githubLabel: "github.com/dsaikou618",
-  repo: "https://github.com/dsaikou618/CSC2042S-Machine-Learning",
-  intro:
-    "I'm a computer science student from Guinea, living in Germany. I study at Nordakademie and build machine learning projects in Python. I'm looking for an internship where I can work on real systems with people who care about how they are made.",
-  contactStatement: "I'm looking for a software or data internship.",
-  contactCopy:
-    "If you have a team where I can contribute and see a project through, I'd like to hear from you. Email is the fastest way to reach me.",
+  travellers: "Saikou and Tri",
+  year: "2026",
   footerNote: "Built with Astro. Hosted on GitHub Pages.",
+  socialNote: "Instagram and TikTok links are on the way.",
 };
 
-export type Project = {
-  year: string;
-  title: string;
-  description: string;
-  stack: string;
-  href: string;
-};
-
-export const projectsIntro =
-  "Three projects I finished end to end: data preparation, model code, evaluation, and a written result. All three are public on GitHub.";
-
-export const projects: Project[] = [
-  {
-    year: "2026",
-    title: "Perceptrons from scratch",
-    description:
-      "Binary and one-vs-rest multi-class perceptrons on Simpsons-MNIST, built without a machine learning library. I tested normalization, learning rates, and augmentation to see what actually moved accuracy.",
-    stack: "Python, NumPy, scikit-learn",
-    href: "https://github.com/dsaikou618/CSC2042S-Machine-Learning/tree/main/assignment-1-perceptron",
-  },
-  {
-    year: "2026",
-    title: "Multilingual text classification",
-    description:
-      "A multinomial logistic regression model in PyTorch with tokenization, TF-IDF features, batching, and a training loop. The report covers ablations and the choices behind the final configuration.",
-    stack: "Python, PyTorch, NLP",
-    href: "https://github.com/dsaikou618/CSC2042S-Machine-Learning/tree/main/assignment-2-nlp",
-  },
-  {
-    year: "2026",
-    title: "Tuning a neural network",
-    description:
-      "An MLP on Fashion-MNIST with a factorial sweep over learning rate, optimizer, and dropout. The best run reached 88.65% validation accuracy, 3.59 points above baseline. I also ran a confusion-matrix error analysis.",
-    stack: "PyTorch, NumPy, Matplotlib",
-    href: "https://github.com/dsaikou618/CSC2042S-Machine-Learning/tree/main/assignment-3-neural-networks",
-  },
+export const nav = [
+  { label: "Journal", href: "#journal" },
+  { label: "About", href: "#about" },
+  { label: "Work with us", href: "#contact" },
 ];
 
-export const toolkitIntro =
-  "Tools I have used in finished work. The list grows as I learn.";
-
-export type ToolkitRow = {
-  label: string;
-  value: string;
+export const hero = {
+  eyebrow: "Travel journal",
+  title: "Far From Home",
+  intro:
+    "We're Saikou and Tri. This is our travel journal: the places we go, the people we meet, and the things we want to remember.",
+  primary: { label: "Read the journal", href: "#journal" },
+  secondary: { label: "Say hello", href: `mailto:${brand.email}` },
+  routeStart: "HOME",
+  routeEnd: "FAR",
 };
 
-export const toolkit: ToolkitRow[] = [
-  {
-    label: "Languages",
-    value: "Python, Java",
-  },
-  {
-    label: "Machine learning",
-    value: "PyTorch, torchvision, NumPy, pandas, scikit-learn, Matplotlib",
-  },
-  {
-    label: "Tools",
-    value: "Git, Jupyter, Maven",
-  },
-  {
-    label: "Practice",
-    value:
-      "Experiment design, hyperparameter tuning, error analysis, technical writing",
-  },
-];
+export const journal = {
+  number: "01",
+  title: "Journal",
+  standfirst:
+    "The first entries are on the way. Routes, stops, and the parts that do not fit in a caption will live here.",
+  emptyTitle: "No entries yet.",
+  emptyCopy:
+    "The first route is still being planned. Check back soon, or email us in the meantime.",
+  emptyAction: { label: "Say hello", href: `mailto:${brand.email}` },
+};
 
-export const education = {
-  description:
-    "Computer science, current. Coursework in machine learning and software development practice. Most of the code is public on GitHub.",
+export const about = {
+  number: "02",
+  title: "About",
+  standfirst:
+    "Far From Home is a shared journal by Saikou and Tri. It is a draft for now: the first routes, photos, and notes will be added as the project takes shape.",
+  people: [
+    {
+      name: "Saikou",
+      detail:
+        "From Guinea. Based in Germany. Studies computer science at Nordakademie. Builds this site.",
+    },
+    {
+      name: "Tri",
+      detail: "The other half of Far From Home. More about Tri soon.",
+    },
+  ],
+  draftNote:
+    "This is a draft before the MVP. Nothing here is a finished route yet.",
+};
+
+export const contact = {
+  number: "03",
+  title: "Work with us",
+  statement: "Travel with us.",
+  copy:
+    "For collaborations, route ideas, or a simple hello, email us. If you have a place, a stay, or an idea that fits the journal, we would like to hear it.",
+  note: brand.socialNote,
 };

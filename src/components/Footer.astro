@@ -1,8 +1,10 @@
 ---
-import { profile } from "../data/site";
+import { brand } from "../data/site";
 ---
 
 <footer class="site-footer">
-  <span>{profile.name}, 2026</span>
-  <span>{profile.footerNote}</span>
+  <div class="site-footer__inner">
+    <span>{brand.name}, {brand.year}</span>
+    <span>{brand.footerNote}</span>
+  </div>
 </footer>
