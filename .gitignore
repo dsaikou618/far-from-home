@@ -1,4 +1,8 @@
 .DS_Store
+node_modules/
+dist/
+.astro/
+npm-debug.log*
 .claude/
 CLAUDE.md
 DESIGN.md

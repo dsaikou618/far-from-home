@@ -1,0 +1,39 @@
+---
+import Contact from "../components/Contact.astro";
+import Hero from "../components/Hero.astro";
+import Projects from "../components/Projects.astro";
+import Toolkit from "../components/Toolkit.astro";
+import { profile } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { canonicalUrl } from "../lib/paths";
+
+const title = "Saikou Diallo | Computer Science Student";
+const description =
+  "Saikou Diallo is a computer science student at Nordakademie in Germany. Machine learning projects in Python, built end to end. Open to software and data internships.";
+const canonical = canonicalUrl(Astro.site, Astro.url.origin);
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  url: canonical,
+  jobTitle: "Computer Science Student",
+  email: profile.email,
+  affiliation: {
+    "@type": "CollegeOrUniversity",
+    name: profile.school,
+  },
+  sameAs: [profile.github],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  schema={schema}
+>
+  <Hero />
+  <Projects />
+  <Toolkit />
+  <Contact />
+</BaseLayout>
