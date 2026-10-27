@@ -28,7 +28,7 @@ export const journal = {
   number: "01",
   title: "Journal",
   standfirst:
-    "The first entries are on the way. Routes, stops, and the parts that do not fit in a caption will live here.",
+    "Routes, stops, and the parts that do not fit in a caption.",
   emptyTitle: "No entries yet.",
   emptyCopy:
     "The first route is still being planned. Check back soon, or email us in the meantime.",
